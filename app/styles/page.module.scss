@@ -1,0 +1,66 @@
+@import './variables.scss';
+
+
+.MainSection{
+    display: grid;
+    gap: 2em;
+    padding: 2em 0;
+    grid-template-areas:
+    "logo",
+    "image",
+    "text" 
+    ;
+    font-family: $Josefin;
+    font-size: 1rem;
+    background:linear-gradient($Background_Gradient) no-repeat;
+
+
+    header{
+        grid-area: "logo";
+        padding: 0 1em;
+    }
+
+    aside{
+        grid-area: "image";
+        img{
+            display: block;
+            max-width: 100%;
+            height: auto;
+            &:last-child{
+                display: none;
+            }
+        }
+    }
+
+    main{
+        grid-area: "text";
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+
+        div{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            gap: 1em;
+            h1{
+                font-size: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+                color: $Desaturated_Red;
+                letter-spacing: .3em;
+                font-weight: 300;
+                em{
+                    color: $Dark_Grayish_Red;
+                    font-weight: 600;
+                }
+            }
+
+            p{
+                padding: 0 .5em;
+                line-height: 1.3;
+                font-weight: 400;
+                color: $Desaturated_Red;
+            }
+        }
+    }
+}
