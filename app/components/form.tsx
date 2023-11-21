@@ -2,28 +2,33 @@
 
 import Image from "next/image"
 import { ValidateEmail } from "../types/emailValidation"
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import ArrowIcon from '../../public/icon-arrow.svg'
 import ErrorIcon from '../../public/icon-error.svg'
 import formStyle from '../styles/form.module.scss'
 
 export default function Form() {
-    const [emailValue, setEmailValue] = useState('')
-    const [error, setError] = useState(false)
-    const [errorMessage, setErrorMessage] = useState('')
+    const [emailValue, setEmailValue] = useState('');
+    const [error, setError] = useState(false);
+    const [emailSent, setEmailSent] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
 
     const sendEmail = () => {
-        if(!emailValue){
+        if (!emailValue) {
             setError(true)
             setErrorMessage('Oh, you have to write your email here!')
         }
 
-        if(emailValue){
+        if (emailValue) {
             let Valid = ValidateEmail(emailValue)
-            if(Valid){
+            if (Valid) {
                 setErrorMessage('')
                 setError(false)
+                setEmailSent(true)
+                setTimeout(() => {
+                    setEmailSent(false)
+                }, 2000)
             } else {
                 setErrorMessage('Please provide a valid email!')
                 setError(true)
@@ -44,9 +49,11 @@ export default function Form() {
                 src={ErrorIcon}
                 alt=''
                 className={formStyle.ErrorIcon}
-                style={{scale: error ? 1 : 0}}
+                style={{ scale: error ? 1 : 0 }}
             />
-            <small style={{scale: error ? 1 : 0}}>{errorMessage}</small>
+            <small style={{ scale: error ? 1 : 0 }}>{errorMessage}</small>
+            
+            <dialog style={{scale: emailSent ? 1 : 0}} open>Email sent ✅!</dialog>
         </form>
     )
 } 

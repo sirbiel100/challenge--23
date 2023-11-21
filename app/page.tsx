@@ -6,6 +6,7 @@ import styles from './styles/page.module.scss'
 import HeroDesktop from '../public/hero-desktop.jpg'
 import HeroMobile from '../public/hero-mobile.jpg'
 import Logo from '../public/logo.svg'
+import DesktopBackground from '../public/bg-pattern-desktop.svg'
 
 export default async function Home() {
   return (
@@ -36,7 +37,11 @@ export default async function Home() {
         </div>
         <Form />
       </main>
-
+    <Image
+      src={DesktopBackground}
+      alt=''
+      className={styles.BGImage} 
+    />
     </section>
   )
 }
