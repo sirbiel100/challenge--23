@@ -1,6 +1,7 @@
 "use server"
 
 import Form from './components/form'
+import Credits from './components/credits'
 import Image from 'next/image'
 import styles from './styles/page.module.scss'
 import HeroDesktop from '../public/hero-desktop.jpg'
@@ -32,16 +33,18 @@ export default async function Home() {
 
       <main>
         <div>
-          <h1>WE'RE <br/><em>COMING  <br/>SOON</em></h1>
+          <h1>WE'RE <br /><em>COMING  <br />SOON</em></h1>
           <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
         </div>
         <Form />
       </main>
-    <Image
-      src={DesktopBackground}
-      alt=''
-      className={styles.BGImage} 
-    />
+      <Image
+        src={DesktopBackground}
+        alt=''
+        className={styles.BGImage}
+      />
+
+      <Credits />
     </section>
   )
 }
