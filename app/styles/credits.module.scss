@@ -85,7 +85,7 @@
 @media (max-width: 600px) {
     .creditSection {
         position: static;
-        width: 25em;
+        width: auto;
         border-radius: 22px;
 
         .creditDiv {
@@ -100,7 +100,7 @@
         }
 
         &:hover {
-            width: 25em;
+            width: auto;
             height: 4em;
             border: none;
         }
